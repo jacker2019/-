@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常见标签的属性</title>
+</head>
+<body>
+<h1>标签属性</h1>
+<p>分类：通用属性、自有属性、自定义属性</p>
+<p>常见的通用属性:（属性值最好使用 双引号 ）<br>
+    id: 用于给标签取 唯一名称。不可重复<br>
+    class：用来给标签取 一个类名。类可以重复，用来引用一组标签<br>
+    style:用来设置标签的行内样式。常见的样式设置内容：style=“color：red; width:20px; border:1px”<br>
+    title:用鼠标移到该标签，显示提示信息。<br>
+</p>
+
+<p>自定义属性：通常用于传值和图片的懒加载
+    格式： data-*
+    例如：img标签src属性变成自定义的属性 data-src="xxxx" </p>
+
+<p>自有属性
+
+</p>
+
+<h1>1.表格标签</h1>
+<p>
+    表格table标签格式：先行后列。也就是在 table标签中先嵌套 tr 标签，在 tr 标签中嵌套 td 列标签。通常表中第一行内所有的列都是表头，th表头标签，表头标签能够自动加粗字体。表格一般由4部分组成<br>
+
+    表格属性：
+    border：边框宽度，默认边框是双线边框。<br>
+    width：表格宽度。<br>
+    cellspacing：双线边框的间距，设置0的话看上去就是单线边框了。<br>
+    cellpadding：单元格中文本内容与边框的距离。<br>
+    align：水平对齐方式。<br>
+    valign：垂直对齐方式。<br>
+    rowspan:跨行，一个单元格占据多行（合并单元格）。 rowspan=“2”表示合并两行<br>
+    colspan：跨列合并单元格。<br>
+    注意：合并单元格要注意删除不必要的内容。为了加快写代码的速度，会用Emmet语法，去快速生成html标记代码。<br>
+    例如：table[boder=1 width=600 align=center]>（caption｛学生信息表｝）+（thead>tr>th*4）+(tbody>tr*3>td*4) 回车就可以生成表格
+
+
+</p>
+
+<h1>2.form表单标签 （*核心标签，是前后端交互的重要标签）</h1>
+<p>
+    常用属性有： name、action、method. <br>
+    name:表单名称。<br>
+    action：表单数据提交的地方，通常是一个后台文件名（jsp、php、asp、py、aspx等）或网址。如果是 # ,表示提交到当前文件下。 <br>
+    method:表单提交的方法。主要有post和get。默认是get。post提交的话不会再地址栏显示提交内容，get则会显示。<br>
+
+</p>
+<p>
+    表单元素：即表单所需要用到的标签。通常有四类：input、textarea、select、button。<br>
+
+    <h3>input类：用来输入、选择 或发出指令。</h3>
+    input的属性type 有以下几种属性值：text（任意文本，默认）、password、radio、checkbox、file、button、image、submit、reset。
+    <br>
+    针对text文本框类型，还可以增加以下属性：placeholder（提示文本框输什么内容）、name（文本框命名，用于区别文本框）、value（默认值）、pattern（正则匹配）、max/minlength（最大/最少输入的字符数目）、disable（失效，类似readonly，但是不能激活文本框）、readonly（只读属性，只能看不能操作）等。<br>
+    针对password密码框类型，还可以增加以下属性：与文本框一样。<br>
+    针对radio 单按钮框：必须含有name属性，可以设置默认value和默认选中状态checked。 同一个name下只能选中一个，因此必须包含name属性。<br>
+    针对checkbox复选框：必须含有name属性。<br>
+    针对file文件上传按钮框。<br>
+    button普通按钮，用于调用脚本代码。常用属性有value（按钮标题）、disabled（失效）。<br>
+    image图片按钮：包含特殊属性src：用于加载图片。<br>
+    submit提交按钮：用来将表单数据提交至后台。常用属性是value(按钮标题）<br>
+    reset重置按钮：将表单内容还原至初始状态。常用属性是value(按钮标题）<br>
+
+    <h3>textarea文本域：用来输入大批量内容</h3>
+    常用属性：name、id、cols、placeholder、minlength等
+
+<h3>select下拉列表框</h3>
+内部用option标签，实现每一个可选内容。 默认是单选的，用mutiple属性实现多选。
+
+<h3>button按钮</h3>
+按钮可以单独使用，可以不写在form元素中，写在form中则具备提交功能。与input中的submit功能一致，用来提交。
+
+
+
+
+</p>
+
+<h1>3.iframe框架集：用于将多个网页文件组合成一个文件（多个html文件布局到一个网页）</h1>
+<p>常用属性：name、src、scroling、width、height、frameborder、marginheight、marginwidth。<br>
+    name：框架名称。<br>
+    src：引入的外部html文件 <br>
+    scroling：滚动条（值为 yes 则添加滚动条，no不添加）<br>
+    width：宽度。<br>
+    height：高度 <br>
+    frameborder：是否有边框。<br>
+    marginheight：框架距离顶部和低端的距离。用%或px表示。<br>
+    marginwidth：框架距离左边和右边的距离。<br>
+</p>
+
+
+</body>
+</html>

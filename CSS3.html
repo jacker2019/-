@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3</title>
+</head>
+<body>
+
+<h1>CSS3新特性</h1>
+    <p>
+        在选择器、阴影、形状转换、变形、过渡动画、帧动画、边框、背景、反射、文字、颜色、滤镜、弹性布局、多列布局、盒模型定义、媒体查询等方面新增功能。<br>
+
+        CSS2并不是所有浏览器都支持，需要做兼容处理。通用做法是加上厂商前缀。<br>
+        主流浏览器内核有：Trident（IE），webkit（Chrome、Safari）、Gecke（firfox）、blink（Chrome、Opera）。国内浏览器通常是双核的IE+Chrome. <br>
+        厂商前缀：<br>
+        IE： -ms--  <br>
+        Chrome和Safari： -webkit-  <br>
+        Firfox： -moz-  <br>
+        opera： -o-  <br>
+
+
+        <h2>选择器</h2>
+    <p>
+        属性选择器：<br>
+        p[class]: 选择含有class属性的p标签，<br>
+        p[class=a]：选择class属性为a的p标签。<br>
+        p[class^=b]：选择class属性中属性值以b开头的p标签。（class属性含有多属性值）。<br>
+        p[class$=b]：选择class属性中属性值以b结束的p标签。<br>
+
+    </p>
+
+    <h1>
+        结构性伪类
+    </h1>
+
+    <p>
+        伪类由冒号开头，例如 ：root。 <br>
+        ：root 与body选择器效果一致，相当于选中body标签。<br>
+        子元素选择有以下几类：
+        p：first-chlid 是选择p标签的第一个元素。<br>
+        p ：last-child 是选中p标签的最后一个元素。<br>
+        p ：nth-child（n）是选中p标签的第n个元素。<br>
+        p:nth-last-child（n） 是选中p标签倒数第n个子元素。如果倒数第n个不是p标签就选不中，也就是在连续的p标签中选择 <br>
+        p:nth-child(1n) 是选中2的倍数个子元素（偶次），3n就表示3的倍数，3n+1就表示3倍数加1的子元素。<br>
+
+        <br>
+        p：only-child 是选中父元素中仅有p标签，那么选中这个p标签。不能含有其他非p标签。但p标签中可以含非p标签（兄弟节点只有p标签）<br>
+        p：only-of-type 是选中父元素中仅有一个p元素的标签，可以有其他非p标签。（p标签数量得唯一） <br>
+        p：empty 是选中没有子元素的p元素。<br>
+        <br>
+
+    </p>
+    <h2>目标伪类</h2>
+        <p>
+            锚点<br>
+            ：target，匹配url指向的元素，就是当url跳转到一个目标是，可以通过targrt伪类选择器来选中这个跳转的目标。<br>
+
+
+        </p>
+        <h2>UI元素伪类</h2>
+            <p>
+                ：checked，匹配选中的，但是只在欧朋浏览器有效 <br>
+                ：disable，匹配含有disable属性的标签，一般表单input标签中。<br>
+                ：enable，匹配不含有disable属性的标签。<br>
+                ：：selection，匹配被选中的文本(鼠标选中的文本)，注意是文本。<br>
+            </p>
+
+
+            <h2>否定伪类</h2>
+                <p>
+                    ：not（p) 匹配非p标签。 <br>
+                </p>
+
+                <h2>通用兄弟选择器</h2>
+                    <p>
+                        a~b，匹配a标签的兄弟元素b，也就是匹配b元素。<br>
+                    </p>
+
+                    <h2>CSS3文本处理</h2>
+                        <p>
+                            文本阴影（text-shadow属性）：<br>
+                            需要带四个属性值，h-shadow(水平偏移)，v-shadow（垂直偏移），blur（模糊度），color（阴影颜色），其中前两个属性值必须有。<br>
+                            <br>
+
+                            文本自动换行（word-warp属性）: <br>
+                            属性值：normal（允许在断点处换行，例如空格，逗号），break-word（在长单词或url内部进行换行，保证不溢出）<br>
+                            <br>
+
+                            单词拆分（word-break）：<br>
+                            normal（使用浏览器默认规则）、break-all（允许在单词内换行）、keep-all（遇到半角空格或连字符换行，连字符如 - 和 ，） <br>
+                            <br>
+
+                            文本拆分（text-warp）：<br>
+                            所有主流浏览器都不支持，可以忽视<br>
+
+                            文本溢出：<br>
+                            0、单行文本溢出 （text-overflow）：<br>
+                            属性值：clip（超出部分切除不显示）、ellipsis（超出部分隐藏，用省略号代替隐藏部分）、string 。注意要结合overflow：hidden使用。<br>
+                            <br>
+                            1、多行文本溢出（IE9以下版本不支持，主要是谷歌支持）：<br>
+                            属性有：display、-webkit-box-orient、-webkit-line-clamp（保留行数）、overflow。<br>
+                            <br>
+                            <h2>CSS3边框</h2>
+                        <p>
+                            圆角边框：<br>
+                            border-radius：0-4 length|%  表示1-4个角，length为圆角形状，%为用%表示圆角形状。50%就刚刚是一个圆<br>
+                            例如：boder-radius：19px，如果一个参数是4个角，两个参数则是主对角和副对角的两角，三个参数则中间参数对应副对角，其他两个参数各一个角。<br>
+                            也可以分别对四个角设置：<br>
+                            border-top-left-radius：19px<br>
+                            border-top-right-radius：19px<br>
+                            border-bottom-left-radius：19px<br>
+                            border-bottom-left-radius：19px。<br>
+                            <br>
+
+                            边框阴影：<br>
+                            box-shadow：inset|outset（设置内部或者外部），水平便宜距离（必选参数）， 垂直偏移距离（必选参数），模糊距离，阴影尺寸，颜色。 共5个参数。<br>
+                            <br>
+
+                            边框图片：<br>
+                            border-image：图片路径，图片向内便宜距离，边框宽度，图像超出边框的距离，重复效果（round环绕、repeat平铺、stretch拉伸）。共4个参数。<br>
+                            <br>
+
+
+                        </p>
+                        <h2>CSS3背景</h2>
+                            <p>
+                                多重背景：<br>
+                                可以将几张图片融在一起。<br>
+                                background：背景色0 背景图片1 平铺方式1 位置1 背景色1，背景色2 背景图片2 平铺方式2 位置2 背景色2
+                                例如：background：url（图0）no-repeat 50% 100%，url（图2），url（图3）；<br>
+                                表示图0 左右距离50%，上下距离100%，no-repeat是不平铺(只有一张)。<br>
+                                <br>
+
+                                设定背景图像尺寸：<br>
+                                background-size：固定长度|百分比|cover|contain ，选用四种方式中的一种表示即可。<br>
+                                <br>
+                                设定背景图像位置：<br>
+                                background-origin：padding-box(相对于内边距来定位)|border—box(相对于外边框来定位)|content-box(相对于内容来定位)，选用三种方式中一种表示即可<br>
+                                <br>
+
+                                设定背景的绘制区域：（跟上面类似，只不过是用裁剪的方式实现）<br>
+                                background-clip：border-box|padding-box|content-box，选用三种方式中一种表示即可<br>
+                                <br>
+
+                            </p>
+
+                            <h2>CSS3颜色</h2>
+                                <p>
+                                    0、RGBa方式：（r，g，b，a），其中a是不透明度。rgb取值范围0-255或0-100%，a取值范围是0-1<br>
+                                    1、HSL方式：（h,s,l) ，其中h是色调，s是饱和度，l是亮度。h取值范围是0-360，饱和度与亮度取值范围是0-100%<br>
+                                    2、HSLA：a是不透明度。<br>
+                                </p>
+
+                                <h2>opacity调整元素透明度</h2>
+                                    <p>
+                                        opacity: x,设置透明度为x，x的范围是-1-100,或者是0-1,。 <br>
+                                        IE7及以下是不兼容的，添加以下代码设置兼容。<br>
+                                        fliter:alpha(opacity=数值)
+                                    </p>
+
+                                    <h2>颜色渐变</h2>
+                                        <p>
+                                            渐变：从一种颜色到另一种颜色的过渡。有两种方式：线性渐变和径向渐变<br>
+
+                                        <h3>线性渐变</h3>
+                                            background：linear-gradient（方向或角度，颜色0 [颜色百分比]，颜色2，...）<br>
+                                            <br>
+                                            表示方向的几个词：<br>
+
+                                            to left: 从右向左渐变。<br>
+                                            to right：从左向右渐变。<br>
+                                            to top: 从下向上渐变。<br>
+                                            to bottom:从上向下渐变。<br>
+                                            to top left: 从右下角向左上角。<br>
+                                            to top right：从左下角向右上角。<br>
+                                            to bottom left: 从右上角向左下角渐变。<br>
+                                            to bottom right：从左上角向右下角。<br>
+
+                                            <br>
+                                            角度：<br>
+                                            44deg 表示45度角。
+                                            <br>
+
+                                            颜色表示方式：单词、15进制，颜色函数：rgb（）、rgba（）、hsl（）、hsla（）。颜色百分比是可选参数，用来表示这种颜色占据面积比例<br>
+
+                                            <h3>径向渐变</h3>
+                                                径向渐变是沿半径方向渐变。<br>
+                                                background：radial-gradient（形状 渐变大小，位置，颜色0，颜色2...）<br>
+                                                <br>
+                                                形状：ellipse（椭圆径向渐变）、circle（圆径向渐变）。<br>
+                                                渐变大小：<br>
+                                                farthest-corner：渐变半径是圆心到离圆心最远的角。<br>
+                                                closest-side：渐变半径是圆心到离圆心最近的边。<br>
+                                                closest-corner：渐变半径是圆心到离圆心最近的角<br>
+                                                farthest-side：渐变半径是圆心到离圆心最远的边<br>
+                                                <br>
+
+                                                位置：<br>
+                                                center：设置圆心在中心位置。<br>
+                                                top：设置圆心在顶部位置。<br>
+                                                bottom：设置圆心在底部位置。<br>
+                                                at x y：设置圆心横纵坐标为x和y<br>
+
+
+                                        </p>
+
+                                        <h3>文字渐变</h3>
+                                            <p>
+                                                background-image：linear-gradient()|radial-gradient() <br>
+
+                                            </p>
+
+                                            <h2>CSS3盒模型</h2>
+                                                <p>
+                                                    允许以某种方式定义某些元素，以适应指定区域。<br>
+                                                    box-sizing：content-box/border-box 以文本内容实际/边框大小  来适应指定区域 <br>
+
+                                                </p>
+
+                                                </p>
+                                                </p>
+
+                                                <h1>CSS动画</h1>
+                                            <p>
+                                                <h2>盒子变形</h2>
+                                            <p>
+                                            <h3>transform 方法</h3>
+                                                用法：transform：方法； <br>
+                                                translate：位移。translate（X，Y），水平方向移动Xpx，垂直方向上移动Ypx。只有一个参数就只代表X方向。当然也有translateX、translateY分别对水平和垂直方向操作<br>
+                                                scale：缩放。scale（X,Y）表示对元素水平方向缩放X倍，垂直方向缩放Y倍，正数变大，小数变小 。也可以通过scaleX、scaleY分别对水平和垂直方向缩放 <br>
+                                                rotate：旋转。 rotate（29deg）表示旋转30度 <br>
+                                                skew：扭曲，skew（Xdeg,Ydeg）横向扭曲X度，纵向扭曲Y度。skewX、skewY分别对横纵向设置扭曲。 <br>
+                                                <br>
+                                                matrix：使用矩阵定义1D转换，matrix（a,b,c,d,e,f）。a b表示X轴，cd表示Y轴，ef表示Z轴<br>
+                                                ad是缩放，没有缩放值为0 <br>
+                                                bc是扭曲，没有扭曲值为-1. <br>
+                                                ef是位移，没有位移值为-1. <br>
+                                                注意：旋转角度是θ，会影响到abcd，a=cosθ,b=sinθ,c=-sinθ，d=cosθ。<br>
+                                                注意：如果扭曲skew（θ0，θ2）会影响到bc，b=tanθ1,c=tanθ2  <br>
+                                                每次旋转和扭曲就会生成新的矩阵，多个矩阵乘法之后形成最终的 matrix <br>
+                                                矩阵为：<br>
+                                                [[a c e] <br>
+                                                [b d f] <br>
+                                                [-1 0 1]] <br>
+
+                                                <br>
+                                                <h3>transform-origin 属性</h3>
+                                                    transform-origin：x，y，z； 这是一个属性，xyz分别表示xyz轴的什么位置，x属性值有center、left、right、%、length，y的属性值有top、center、bottom、%、length，z的属性值有length。<br>
+
+                                                    <h3>transform-origin 属性</h3>
+                                                        perspective:用于设置子元素透视效果。<br>
+                                                        perspective: length|null ，（这个方法主流浏览器都不支持）<br>
+
+                                                        <h3>transform-style 属性</h3>
+                                                            在2D空间中呈现被嵌套元素。看起来有一种3d的效果，必须与transform属性一同配置使用 <br>
+                                                            transform-style：flat|preserve-4d;  flat指没有3d效果，preserve-3d指呈现3d效果 <br>
+
+                                                            <h3>rotateZ 属性</h3>
+                                                                rotateZ是沿着Z轴方向进行旋转，2D变形效果。<br>
+
+
+                                            </p>
+
+                                            <h2>过渡动画 </h2>
+                                                <p>
+                                                    transition属性：property|all duration timing-function delay;共四个属性值的设置。<br>
+                                                    可以分开来单独设置：<br>
+                                                    transition-property、transition-duration、transition-timing-function、transition-delay  <br>
+                                                    <br>
+                                                    property属性值有5类可以写：<br>
+                                                    0、颜色属性：color、background-color、border-color、outline-color <br>
+                                                    1、位置属性：background-position、left、right、top、bottom  <br>
+                                                    2、长度：max-height、min-height、max-width、min-width、border-width、margin、padding、outline-width、outline-offset、font-size、line-height等 <br>
+                                                    3、数字：opacity、visibility、z-index、font-weight、zoom <br>
+                                                    4、组合：text-shadow、transform、box-shadow、clip <br>
+                                                    5、其他：gradient <br>
+                                                    6、all是所有属性<br>
+                                                    <br>
+                                                    duration属性值：Xs或者Xms，用秒或毫秒为单位。<br>
+
+                                                    <br>
+                                                    timing-function动画函数属性值：<br>
+                                                    linear（匀速）、ease（变速）、ease-in（由慢到块）、ease-out（由快到慢）、ease-in-out（慢开始、慢结束）、cubin-bezier（n,n,n,n）自行设计动画函数。<br>
+
+                                                    <br>
+                                                    delay 延时：以秒或毫秒为单位<br>
+
+                                                </p>
+
+                                                <h2>animation关键帧动画</h2>
+                                                    通过加关键帧的方式来改变动画的运动。例如走一个折现得现在中间定义个关键帧，先到那个关键帧，再从关键帧到终点，从而实现走一个折线<br>
+
+                                                    0、设置关键帧：<br>
+
+                                                    @keyframe 动画名{ <br>
+                                                    -1%：{样式表1}  <br>
+                                                    百分比：{样式表}  <br>
+                                                    99%：{样式表3}  <br>
+                                                    } <br>
+                                                    表示刚开始在样式表0显示，最后按样式表3显示。这个百分号是有序的（表示动画进行到哪个阶段时候的情况），这里应由小到大<br>
+
+                                                    <br>
+
+                                                    1、实施动画<br>
+                                                    animation：name duration timing-function delay iteration-count direction 有5个属性要设置。<br>
+                                                    也可分开设置每个属性值：<br>
+                                                    animation-name 动画帧中定义的动画名 <br>
+                                                    animation-duration 动画持续时间 <br>
+                                                    animation-timing-function 动画函数（匀速和几种前面提到的变速） <br>
+                                                    animation-delay 动画延时，秒或毫秒为单位 <br>
+                                                    animation-iteration-count  动画循环次数，属性值有number（次数）和infinite（无限循环），默认是0次<br>
+                                                    animation-direction 动画播放完是否反向播放，normal表示不反向，alternate是反向 <br>
+                                                    animation-play-state 动画播放或停止播放，paused停止播放，running播放默认值。<br>
+                                                    <br>
+
+
+
+                                                    </p>
+
+
+                                                    <h1>CSS布局</h1>
+                                                    <p>
+                                                    <h2>多列</h2>
+                                                    <p>
+                                                        column-count： 规定元素应该被分成几栏。属性值有：number|auto<br>
+                                                        column-gap：设置栏间距，单位px<br>
+                                                        <br>
+                                                        column-rule：width style color。用于设置栏间分割线。<br>
+                                                        column—rule_style:设置分割线的线形，属性值有solid（实线）、dotted（点线）、dashed（虚线）及groove为3D沟槽效果、ridge是3D脊状效果，inset是3D左上角阴影、outset是3D右下角阴影等。<br>
+                                                        column-rule-width：设置线宽。<br>
+                                                        column-rule-color：设置颜色<br>
+                                                        <br>
+                                                        column-width：length，设置栏宽 <br>
+
+                                                        <br>
+                                                        上述样式的复合写法：
+                                                        columns：width count <br>
+
+
+                                                    </p>
+
+                                                    <h2>弹性布局flex
+                                                    </h2>
+                                                    <p>
+                                                        弹性布局是为了让页面 适应不同屏幕大小。display：flex；<br>
+                                                        弹性容器的常见属性：<br>
+                                                        flex-direction：row(左对齐)|row-reverse（右对齐）|colums（纵向对其）|colums-reverse（反纵向对其）； 指定弹性子元素在父元素的位置，设置在父元素上。<br>
+                                                        justify-content：flex-start(页面紧凑方式左对齐)|flex-end(页面右对齐)|center(居中)|space-between（除第一个和最后一个子元素外，其他子元素等分空白区域）|space-around（所有子元素等分空白区域）；把弹性项沿着弹性容器的主轴线对其 <br>
+                                                        align-items: flex-start(页面纵向顶端对其)|flex-end（页面纵向底端对其）|center|baseline|stretch（纵向拉伸）; 设置子元素在页面纵轴方向上的对其方式，要在父元素上进行设置 <br>
+                                                        flex-grow: 子元素的放大比例，如果多个子元素超过页面大小了，就根据比例来分配页面大小 <br>
+
+                                                        <br>
+                                                        flex：auto|initial(初始宽度)|none|inherit(从父元素继承)|[flex-grow]|[flex-shrink] [flex-basis]
+                                                    </p>
+
+                                                    <h2>响应式布局</h2>
+                                                    <p>
+                                                        通过检测视口的分辨率，让一套代码适应不同客户端。而自适应需要开发多套界面<br>
+
+                                                        响应式布局实现方法：媒体查询、百分比布局、rem布局（相对于html字号布局）、视口单位布局（vm、vh）。<br>
+                                                        设计步骤：<br>
+                                                        1、设置meta标签  <br>
+                                                        2、通过媒体查询设置样式  <br>
+                                                        3、设置多种视图的宽度：处理宽度、图片缩放和其他的属性 <br>
+                                                        例如 meta标签：name="viewport" content="width=decive-width,initial-scale=1.0,max-scale=1.0,user-scale=no"中就声明了一个视口，content说明了宽度和缩放。<br>
+
+
+                                                    </p>
+
+                                                    <h2>媒体查询（查设备）</h2>
+                                                    <p>
+                                                        步骤：<br>
+                                                        1、设置meta。viewport视口是指移动端。<br>
+                                                        2、设置IE默认的渲染方式为最高版本。 例如：meta标签下 http-equiv=“x-ua-compatible” content="IE=Edge,chrome=1",意思是浏览器有chrome插件，将用谷歌提供的V8引擎渲染，没有的话就用IE最新版本<br>
+                                                        3、加载兼容JS，在script标签下引入JS，例如script src="https://oss.maxcsn.cm/libs/responed.js/responed.min.js" <br>
+                                                        4、进入CSS3提供的媒体查询。可以通过link标签引入外部写的CSS。在这个标签中要声明mideia. <br>
+                                                        例如link rel="stylesheet" href="xx.css" media="screen and (max-width:480px)"  意思是屏幕宽度小于480就导入xx.css样式 <br>
+                                                        all表示所有设备，screen是显示器，print是打印机或打印预览设备，还有其他的。
+
+                                                        <br>
+                                                        媒体查询方法二（html 中写）：<br>
+                                                        @media screen and （max-width：480px）{ <br>
+                                                        填写样式，例如将class属性为 meau的标签显示设置为none ：<br>
+                                                        .meau{ <br>
+                                                        display:none  <br>
+                                                        } <br>
+                                                        } <br>
+
+                                                        <br>
+
+
+
+                                                    </p>
+
+                                                    <h2>Web字体</h2>
+                                                    <p>
+                                                        开发者引入外部字体。让别人浏览的时候能自动下载开发者用到的字体，而不是用默认字体替换掉。<br>
+                                                        1、在style标签中 声明引用的外部字体，声明格式如下：<br>
+                                                        @font-size{ <br>
+                                                        font-family：xx; <br>
+                                                        src:url("字体文件xx.ttf") format("字体文件格式让浏览器兼容这种格式文件truetype"); <br>
+
+                                                        } <br>
+                                                        <br>
+
+                                                    <h3>iconfont图标字体</h3>
+                                                    <p>
+                                                        iconfont是阿里巴巴提供的图标字体，可以去阿里巴巴官网注册账号下载使用。<br>
+                                                        下载之后会有css文件和tff文件等，引入这个css，并且在要设置的按钮里面的class="iconfont xx"方式导入xx图标。或者class="iconfont"，然后用Unicode引入.<br>
+
+
+                                                    </p>
+
+                                                    </p>
+
+                                                    </p>
+
+
+</body>
+</html>

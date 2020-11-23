@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5</title>
+</head>
+<body>
+
+<h1>HTML5</h1>
+<p>
+    HTML5新增音频、视频功能（抛弃了flash）、绘画画布（canvas）、地理定位、离线缓存、硬件加速、web scoket（全双工通信）/
+    增加本地存储、增加语义化标签。<br>
+    <br>
+    网页布局标签：<br>
+    1.header： <br>
+    2.nav：导航栏 <br>
+    3.aside：侧边栏 <br>
+    4. main：主体 <br>
+    5. section ：区块。 <br>
+    6. srticle：文章 <br>
+    7. footer：页尾 <br>
+    <br>
+    语义化标签： <br>
+    1.mark：高亮显示，<br>
+    2.details：描述； summary：摘要，（可以展开细节内容）。 （一般用于名词解释）<br>
+    3.meter：定义度量衡（可以产生一个图画，类似进度条），含有属性value（当前值）、min、max。<br>
+    4.progress：进度条。 属性 value（当前值），min，max。 <br>
+    5.dialog：定义对话框和窗口。 属性open可以使得内部内容显示，显示的内容是居中显示的。然后显示的内容可以向对话框一样关掉<br>
+    6.figure：用于对元素进行组合，一般用来组合图的标题、图片和图片描述。便于对其打包处理样式。 <br>
+    <br>
+    音频视频标签：<br>
+    1.audio：音频播放。 IE9以下版本不支持，支持格式mp3，ogg，wav。属性 src（文件路径）， autoplay（自动播放）、loop（循环播放，可以设次数）、controls（控制条）、muted（静音）、preload（预加载，自动播放时prrload自动失效） <br>
+    2.vvideo：视频，支持mp4，ogg，webM格式。属性 src、autoplay、controls、muted、preload、width、height、poster（视频未播放之前的海报） <br>
+    3. embed：嵌入内容或加载插件。属性：src、width、height、type（声明引入插件的类型和格式）。 <br>
+
+    <br>
+    画布标签：canvas，canvas提供一个容器元素，单独使用canvas没有意义，需要结合JS实现具体绘画功能。<br>
+    canvas的宽高不要通过CSS设置，最好是通过标签属性 width 和 height 去设置。<br>
+
+    <br>
+    HTML常用属性：<br>
+    1.contentEditable：true标签可编辑转态。<br>
+    2.hidden：对元素进行隐藏。一般用来传值或当某个条件成立的时候，执行内容显示。默认值是hidden。<br>
+    3.data-*： 自定义属性，*表示自定义属性的名字。一般用来传值。<br>
+    4.mutiple：用于表单组件中，规定输入域中可以多个选择。<br>
+    5.required：约束表单元素提交前必须输入值，需要结合提交按钮使用。 <br>
+    6.pattern：用于验证输入字段的格式，结合表单使用，用正则匹配是否符合规则。<br>
+    <br>
+
+    HTML5 表单组件：<br>
+    1.color：颜色，表单中可以选择颜色。<br>
+    2.email：邮箱，提交时候会有邮件格式验证。<br>
+    3.tel：电话，<br>
+    4.url：网址，验证提交的表单内容是不是网址 <br>
+    5.number：数字。标签中可以选的数字范围<br>
+    6.range：范围。 类似进度条的一个滑块 <br>
+    7.search：搜索，搜索框 <br>
+    8.date：日期，表单中可以选择日期 <br>
+    9.datetime：日期时间 <br>
+    10.datetime-local：本地时间。 <br>
+    11.year：年 <br>
+    12.month月
+    等等..
+
+    <br>
+    <br>
+    <br>
+
+    表单属性：<br>
+    formaction：修改action，即修改数据提交的地方 <br>
+    formenctype：修改表单请求类型，普通表单还是别的，application/xxx  之类的 <br>
+    formmethod：修改数据提交的方法，get、post <br>
+    form：设置表单元素属于哪一个表单 <br>
+    novalidate： 不验证<br>
+    <br>
+    注意：get和post两种请求方式的区别：<br>
+    1.get是以字节为单位（只接受ascii码）提交、post以字符为单位 <br>
+    2.get是明文的，post是以暗文方式提交。所以get不传敏感数据。 <br>
+    3.get 在浏览器中回退无害，post 在浏览器中回退是会再次提交请求。<br>
+    4.get在浏览器中主动缓存，而post不会，要手动设置。<br>
+    5.get和post传输字节上一般没有限制，但是在个别浏览器中会有，get是2k，post是2M。
+</p>
+
+<h3>input 属性</h3>
+    <p>
+        常见属性有：<br>
+        -1、autocomplete：自动完成，帮助用户输入（每一次输入浏览器是否保存输入值，以备将来使用），属性值有：on（默认）、off。敏感数据要关掉这个属性 <br>
+        0、autofocus：自动聚焦。自动会聚焦到该 input 标签 <br>
+        1、step：步长 <br>
+        2、multiple：多选 <br>
+        3、pattern：正则匹配 <br>
+        5、placeholder：输入提示，input中没有输入信息是 显示的浅色提示信息 <br>
+        6、required：必须输入 <br>
+    </p>
+
+<h3>HTML5代码规范</h3>
+    <p>
+        0、小写元素名称，多个单词组合就中间加 - 连接，例如user-name。 <br>
+        1、双标签的需要闭合<br>
+        2、样式表：<br>
+        该加空格加空格，该缩进缩进，该加分号加分号，该加逗号加逗号。
+    </p>
+
+</body>
+</html>

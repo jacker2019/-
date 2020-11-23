@@ -1,0 +1,97 @@
+<!DOCTYPE html> <!-- 快捷键 ！+tab  -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keyword" content="">  <!-- meta 设置网站的搜索关键字, 增加网站被搜索引擎搜到的概率，也可以设置网站简述内容-->
+    <title>标题</title>
+
+    <!--设置网站的小图标,用外部资源来实现这个小标签，icon 是图标的意思-->
+    <link rel="shortcut icon" herf="http://www.tucoo.com/icon/zippo/s/zippo%20001.png" type="image/x-icon">
+
+
+
+
+</head>
+<body>
+<h1>html 头部文件标签的说明 </h1>
+<p>
+    title：指定整个网页的标题，在浏览器最上方显示。<br/>
+    base：为页面上的所有链接规定默认地址或默认目标。<br/>
+    meta：提供有关页面的基本信息，单标签。charset=‘utf—8’声明编码<br/>
+    body：用于定义HTML文档所要显示的内容，也称为主体标签。我们所写的代码必须放在此标签內。<br/>
+    link：定义文档与外部资源的关系，单标签。
+    style：用来定义CSS，双标签。；例如属性 type="text/css
+    script: 用来写js脚本，双标签。属性language声明语言，例如：language=‘JavaScript’ type=‘text/JavaScript’
+</p>
+
+<h1>常见标签的内容总结</h1>
+<h3>普通标签</h3>
+<p>1:   div 标签是用来布局的，没有具体含义。  网页结构化，一层 一层 </p>
+<p>2:   h 是标题标签，h1最大，h6最小，有默认的字号 </p>
+<p>3:   P 段落标签，包括一段文字。文字结束后加上换行。</p>
+<p>4：  br 换行标签，这是单标签 不是双标签，所有 <br /> </p>
+<p>5：  hr 分割线（单标签），是一个单标签，属性 width 设置宽度，属性align 设置对其方式， color设置颜色 height设置高度  </p>
+<p>6：   a 链接跳转标签，点击之后跳转至相应的网站，herf属性设置网址或文件路径，target属性是在当前浏览页面还是新的页面跳转，设置跳转方式、title等属性，alt属性是用字符代替链接显示 </p>
+<p>7：   img 加载图像标签（单标签），src属性声明 图片资源路径，alt属性声明加载不成功时的内容，title 属性 显示鼠标放置图片上后显示的内容 </p>
+<p>8：   span 行内布局标签，区别是div会单独占据一行，而span不会单独占据一行，也就是说不会自动换行 </p>
+<p>9：   ul与ol 列表，ul是无序列表，ol是有序列表。无序列表前面是一个点，有序是有序号。当然前面序号的表示方式是可以通过属性设置 </p>
+<p>10:  input标签是 文本标签，为单标签</p>
+
+
+<h3>文本格式化标签</h3>
+<p>1：   b和strong标签， 均能实现文本的加粗，strong还能实现强调作用，强调作用是SEO优化时便于提取关键字 </p>
+<p>2：   i和em标签， 均能使文字倾斜，em还能实现强调作用 </p>
+<p>3：   pre标签（块级标签：会独占一行）。 预格式化文本，会预先保留空格、换行和宽度，也就是标签内部的空格、换行在页面上也会保留下来 </p>
+<p>4：   small和big标签（行级标签：会独占一行，且不识别狂傲）。  small是使文字小一号，big是使文字变大一号，对比对象是默认文字。big在html5中被淘汰掉了。浏览器支持的最小字号是12px，需要更小是要经过处理的 </p>
+<p>5：   sub和sup标签，sub是设置下标，sup是设置上标。  </p>
+<p>6： q标签是自动添加双引号。  </p>
+<p>7：  address 标签，为网页加入地址信息，文本会倾斜。  </p>
+<p>8： caption标签，为表格添加标题信息 </p>
+<p> </p>
+<p> </p>
+
+<h3>特殊字符标签</h3>
+<p>&nbsp &nbsp;是空格，注意要以分号结束</p>
+<p>&lt&nbsp;是小于号</p>
+<p>&gt&nbsp;是大于号</p>
+<p>&times&nbsp; 是乘号</p>
+<p>&divide&nbsp; 是除号</p>
+<p><a href="https://tool.oschina.net/commons?type=2" target="_blank">html转移字符对照表</a></p>
+
+
+
+<h1>html 块级标签和行级标签 区别 </h1>
+<p>块级标签：独占一行，宽高可控，内部可以嵌套行级、块级标签。可以通过display：inline转换为行级标签。 常见有：div、p、h标签、ol、pre、table、adress等</p>
+<p>行级标签：不会独占一行（与相邻元素会放在同一行），宽高不可控，内部只能嵌套行级标签。可以通过display：block转换为块级标签。常见有：span、a、b、strong、em、sup、sub等。img属于行级块标签，相当于执行display：inline_block</p>
+<p></p>
+<p></p>
+
+<h1>开发中的注意点 </h1>
+
+<p>项目等命名不用中文</p>
+<p>常见页面命名说明： index.html 是首页，about.html 是公司介绍， news.html 是新闻列表， product.html是产品列表，product_details是产品详情页，contact.html是联系页，order是订单页面</p>
+<p>浏览器内核：Trident（IE），Webkit（Safari，Chrome），Blink（Chrome，Opera），Gecko（Firefox）.国内一般是IE与谷歌的内核双内核使用。移动端中IPAD、iPhone和安卓4.4以下是用Webkit内核，安卓4.4以上用的是Blink</p>
+<p>网页基本标签 html 内嵌 head和body标签构成</p>
+<p>标签嵌套规则：1.块级标签可以包含行或快标签，但行级标签是不能不含块级标签的。但是p,h1-h6 这几个特殊的块级标签里面不能放块级，只能放行级标签</p>
+<p></p>
+
+<p> </p>
+<p> </p>
+<h1>Webstorm 快捷键</h1>
+<p>ctrl + D 是复制 </p>
+<p>ctrl+ shift+/ 是注释选中的内容 </p>
+<p> 字母+tap &nbsp;是自动补全为标签</p>
+<p> </p>
+
+
+
+<h1>  </h1>
+<p> </p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+
+
+</body>
+</html>

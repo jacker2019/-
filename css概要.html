@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css概要</title>
+    <style>
+        p{
+            font-size: 20px;
+            font-family: 微软雅黑;
+            line-height: 1.5; /*设置1.5倍行距*/
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>CSS基本语法</h1>
+<p>
+ 选择器｛
+    属性：值；
+    ｝
+</p>
+<br>
+
+<h1>CSS的引用方式
+</h1>
+<p>
+    CSS含有四种引用样式：行间样式、内部样式、外部样式、导入外部样式、 <br>
+
+    行间样式：在标签内进行样式设计。<br>
+    内部样式：在html文件的style标签中进行样式设计。<br>、
+    外部样式：在外部css文件中写样式，然后html文件中 用link标签的href属性中引入外部样式。Emmet语法快捷键是：link：css回车。 <br>
+    导入外部样式：通过html中style标签中import导入外部CSS文件。即style标签中通过 @import "css文件链接" 进行导入。<br>
+    两种外部导入css的区别：<br>1、link能导入css，rss等事务，而import只能导入css。<br>
+    2、link引用的css与加载页面同步进行，而import则需网页完全载入后加载。<br>
+    3、link是XHTML标签没有兼容问题，而import是css2.1提出的，在低版本浏览器中不支持。<br>
+    4、link支持JS控制DOM改变样式，而import不支持。综上，建议使用link导入外部样式。
+</p>
+
+<h1>CSS选择器</h1>
+<p>
+    1. * 表示匹配 html 中的所有元素。<br>
+    2. id选择器：# id属性｛｝ <br>
+    3. 类选择器： . class类｛｝ <br>
+    4. 标签选择器：标签名｛｝ <br>
+    5. 派生选择器： 根据上下文确定标签，语法： 第一级选择器 第二级标签选择器。例如 ： . aaa li 表示 属性为aaa标签下面的所有li标签。<br>
+    6. 伪类选择器： <br>
+    多个选择器选定的元素用逗号隔开，一起修改样式。后续样式将覆盖前一个样式。子元素是可以继承父元素的样式，反之不行。<br>
+
+</p>
+
+<h1>样式权重</h1>
+<p>
+    样式是存在优先级的：内联样式（标签内部）> 内部样式 > 外部样式 <br>
+    权重值： ！important 的权重是10000 > 内联样式（1000）> id选择器（100） > 类、伪类选择器（10）> 标签选择器（1）<br>
+
+
+</p>
+
+<h1>CSS 字体</h1>
+<p>
+    常见的字体属性有：<br>
+    font-size: 字号，用像素px或百分比%指定大小。<br>
+    font-family: 字体样式，可以按优先顺序排列（用逗号隔开）。注意:字体名称包含空格则需用双引号引起来。 <br>
+    font-style: 样式，normal是常规字体，italic 是斜体，oblique是倾斜的字体。 <br>
+    font-weight: 加粗，normal是常规粗，bold是粗体，bolder所示更粗，lighter比常规细。也可以用100-900来表示粗细，400是常规 <br>
+    font-variant：让大写字母变得小一号，noraml常规，或samll-cap 让大写字母小一号。（如果没有大写字母就全变成大写的）<br>
+    line-height: 行高, normal常规行高，给出像素px指定行高，或者number去设置当前文字大小的倍数。<br>
+    color: 文字颜色，颜色名字去配置，例如color：red；或者rgb（100，100，100），或者16进制去配置，如#345678. <br>
+    text-decoration: 文字修饰， noraml是没有修饰，underline是下划线，line-through是贯穿线条，overline是上划线<br>
+    text-align:文本对齐，默认left（左对齐），center、right<br>
+    text-transform: 字母大小写， capitalize 单词首字母大写，uppercase转换成大写，lowercase是转换成小写 <br>
+    text-indent: 字母缩进， px是按像素缩进，em是按字符缩进 <br>
+
+    注意：font复合属性要注意顺序。<br>
+    顺序：font-style、font-variant、font-weight、font-size/line-height、font-family. <br>
+    其中：font-size和font-family是必须声明的，其他可以省略。
+</p>
+
+<h1>CSS背景</h1>
+<p>
+常见的属性有：<br>
+    background-color: 背景色,transparent(透明）、或者指定颜色。 <br>
+    background-image：背景图，none（取消背景图）、url来指定图像地址。<br>
+    background-repeat：背景的平铺方式，repeat、no-repeat、repeat-x（横向平铺）、repeat-y （纵向平铺）。<br>
+    background-position：背景位置，{ x-number 、 top 、 center 、 bottom} 、 {y-number 、 left 、 center 、 right} 。<br>
+    background-attachment:背景图的滚动位置。scroll（滚动）、fixed（固定不动）。 <br>
+    background：  复合属性写法（同时写多个属性），顺序是： color、image、repeat、attachment、position。中间用空格隔开<br>
+
+</p>
+
+<h1>CSS伪类选择器</h1>
+<p>伪类选择器：专用用来表示元素的一种特殊状态，用冒号：表示</p>
+<p>
+    常见的伪类选择器：<br>
+    1、 a标签的伪类：<br>
+    ：link  》用来表示link未被访问的状态，例如link｛color：red｝设置未被访问时候为红色。<br>
+    ：visited 》用来表示已经被访问的连接状态。<br>
+    ：hover 》用来表示当鼠标在连接上的状态。<br>
+    ：active 》用来表示当鼠标选中该元素的状态。 <br>
+
+    2、表单的focus。 <br>
+    ：focus 》用来表示表单获得焦点时的出发样式。 <br>
+    例如： input：focus｛background-color：red｝。》表示input表单标签获得聚焦（鼠标在上面），就把背景变成红的。<br>
+
+    3、 first-child 来选择该元素的第一个子元素。last-child来选择最后一个子元素。nth-child（n）来选择第n个元素。<br>
+    p:first-child{font-size:20px} . >表示p标签第一个子元素的字体设置成20像素。<br>
+
+</p>
+
+<h1>CSS属性和关系选择器</h1>
+<p>属性选择器：<br>
+    [属性名]是指包含指定属性名的元素。（常用）<br>
+    [属性名=值]是指包含属性名为指定值的元素。（常用）<br>
+    [属性名~=值]是指属性名的值包含指定值的元素。<br>
+    [属性名^=值]属性名的值以指定值开头的元素。<br>
+    [属性名$=值]属性名的值以指定值结尾的元素。<br>
+
+
+</p>
+<p>
+关系选择器：<br>
+    空格：后代选择器。选中所有后代<br>
+    > 是儿子选择器。只选择儿子元素<br>
+    +是兄弟选择器。<br>
+
+</p>
+
+<h1>CSS伪元素</h1>
+<p>
+    伪元素和伪类：是用来修饰不在文档树中的部分，格式化文档树以外的信息。<br>
+    伪类：用于已有元素处于某个状态时，为其添加对应的样式。这个状态是根据用户行为变化而变化的。<br>
+    伪元素：创建一些不在文档树的元素，并为其添加样式。例如可以通过p：before 在p元素前面添加文本。用冒号或双冒号开头。<br>
+    常见的伪元素有：<br>
+    ：before， 在元素之前添加内容，content属性<br>
+    ：after，  在元素之后添加内容<br>
+    ：first-letter，向文本的第一个字母添加特殊样式  <br>
+    ：first-line，向文本首行添加特殊样式 <br>
+    ：：selection，  <br>
+    ：：placeholder，  <br>
+    ：：backdrop，  <br>
+
+</p>
+
+
+
+
+</body>
+</html>

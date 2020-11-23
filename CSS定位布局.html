@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS定位布局</title>
+</head>
+<body>
+<h1>定位position的属性值</h1>
+<p>
+    CSS中定位分为三类：静态定位（static）、绝对定位（absolute）、相对定位（relative）、固定定位（fixede） ，由position完成这项功能，会将标签（元素）转换为块级标签。<br>
+    静态定位static：（没有定位）不能设置偏移值，占用文档流。<br>
+    相对定位relative：可以设置偏移值（left、top、right、bottom），占用文档流（标准流）。偏移之后其他元素是不能占用他原先的那个地方的，是按照其原先位置做偏移的<br>
+    绝对定位absolute：会脱离文档流，是相对于body做偏移的，而不是相对自身做偏移。一般是与相对定位结合起来使用，这样就可以相对于父级relative做偏移<br>
+    固定定位fixed：相对于浏览器左上角（0，0）做偏移。他与relative设定的对象没有关系了。一般用于开发固定的导航栏。<br>
+    <br>
+
+</p>
+
+<h1>z-index</h1>
+<p>
+    为多个元素添加绝对定位，元素会叠加在一起，使用z-index可以设定元素的层次，相当于设置图层的层次。数字越大越顶层<br>
+
+</p>
+
+<h1>布局</h1>
+<p>
+    常见布局：<br>
+    双飞翼布局：两端固定，中间自定义。分成左中右三部分。用margin属性来实现左右分布<br>
+    圣杯布局：也是两端固定，中间自定义，有三列构成。使用position定位去实现左右分布，一般用relative属性值做偏移实现<br>
+    侧边栏固定布局：有两栏布局和三栏布局。至少有一栏是固定的。<br>
+
+</p>
+
+<h1> BFC和 IFC 规范</h1>
+<p>
+    FC（formatting context）是格式上下文，BFC是块级格式上下文，IFC是行级格式上下文。<br>
+    形成BFC的条件：浮动元素（float）、或 定位元素（position）、或者display（值为 inline-block、table-cell、table-caption时）、或者 overflow（值为hidden、auto、scroll）时触发BFC规范。<br>
+    BFC特性：<br>
+    1.内部的盒子在垂直方向上是一个接一个放置的。<br>
+    2.垂直方向上的距离由margin最大的值决定。<br>
+    3.BFC区域不会与float元素区域重叠。<br>
+    4.计算BFC高度时，浮动元素也参与计算。所以可以撑开父级元素<br>
+    5.BFC就是页面上独立的一个容器，容器里面的子元素不会影响到外面的元素。<br>
+    BFC作用：解决margin重叠的问题（通过添加独立BFC）、解决浮动高度塌陷问题（在父级添加overflow：hidden实现）、解决侵占浮动元素的问题（在父级元素添加voerflow：hidden清除浮动）。
+    <br>
+    形成IFC的条件：存在font-size、line-height、height 或 vertical-align 时。<br>
+    IFC特性：<br>
+    1.IFC元素会在一行中从左至右排列。<br>
+    2.在一行上的所有元素会在该区域形成一个行框。<br>
+    3。行宽的高度为包含框的高度，高度为行框中最高元素的高度。<br>
+    4.浮动元素不会再行框中，并且浮动元素会压缩行框的宽度。<br>
+    5.行框的宽度容纳不下子元素时，子元素会换下一行显示，并且产生新的行框。<br>
+    6.行框的元素内遵循text-align、vertical-align。<br>
+    height = line-height + vertical-algin
+</p>
+
+
+</body>
+</html>

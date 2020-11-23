@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS浮动布局</title>
+</head>
+<body>
+
+<h1>浮动</h1>
+<p>
+浮动就是让块级标签不独占一行，目的是让块级标签元素可以排在一行上。<br>
+    float属性：定义元素在哪个方向上浮动。 <br>
+    right：元素向右浮动。<br>
+    left： 向左浮动 <br>
+    none：元素不浮动，默认值。 <br>
+    inherit： 从父元素集成 float属性的值。<br>
+
+</p>
+
+<h1>清除浮动</h1>
+<p>
+
+    1.clear属性，在浮动元素的父级后面添加一个样式为 clear: 空标签，both是两侧不允许浮动，right、left右左不允许浮动，inherit是继承父级clear属性。<br>
+    2.overflow属性，hidden表示超出父级元素尺寸时内容会被修简，父元素显示溢出子元素，scroll是内容被修剪，但是浏览器滚动条滚动还能看到的，auto不显示超出内容，visible是课件，内容不被修剪（默认）。 <br>
+    3.在清除浮动的父级元素添加伪元素，例如： <br>
+    父元素： after｛content：“...”｝<br>
+    注意：第二种方法用的最多。
+
+</p>
+
+<h1>盒子模型</h1>
+<p>
+    每个元素都是一个盒子，盒子由margin（外边距）、border（边框线）、padding（内边距）、content(内容）组成。<br>
+    内外边距是相对于边框线而言的，一般项目初始化的时候会将外边距设置为0。 盒子模型浏览器属性右下角是可以看的。<br>
+    margin属性的值说明：一个值表示上下左右都是同样的距离，2个值表示上下为第一个值，左右为第二个值。3个值表示上、下和左右各站一个。四个值则是 上 右 下 左各占一个值。<br>
+    padding属性的值顺序及其意义与margin一样。<br>
+    border含有 border-width（边框宽度） 与 border-style（边框样式）、border-color （边框颜色）三种属性。同样可以复写，即 border： 带几个值，每个值按宽度、样式、颜色的顺序解释。<br>
+    所以，盒子的真实宽度=宽+左右padding+border，真实高度=height+上下padding+border。 <br>
+
+    display属性：none为不显示元素，block按块显示（行级转换为块级，因为块级能识别宽高），即在元素前后加换行符；inline行内显示（块级转换为行级，同时删除换行符）；inline-block设置为行内块状元素。<br>
+
+
+</p>
+
+<h1>表格样式</h1>
+<p>
+    border样式：显示双线边框线。<br>
+    border-collapse：显示单线边框。<br>
+    width：表格宽度。 <br>
+    height：表格高度。<br>
+    text-align：表格内文本对齐样式，（对表格的行tr或列td是指属性）。<br>
+    vertical-align：垂直对其方式（对表格行tr或列td去设置）。<br>
+
+</p>
+
+
+<h1>列表样式</h1>
+<p>
+    只要不是描述性的文本，就可以看成是列表。列表分成无序列表、有序列表和自定义列表。 无序列表是ul标签，有序列表是ol，自定义列表是dl标签。<br>
+    ul和ol中是li作为列表项的标签，但自定义dl是用dt和dd组成，至少要有一个dt，dl是没有标识符的。<br>
+    <br>
+    列表样式用来修改标识类型,列表样式有以下几种：<br>
+    list-style-image: 用图像标识。由url属性名导入<br>
+    list-style-position:标识的位置。<br>
+    list-style-type:标识类型。无序则属性值为disc（实心圈）、circle（空心圈）、square（方块）。有序则用decimal（十进制小数）、decimal-leading-zero、lower-roman（小写罗马）、upper-roman、lower-alpha（小写字母）等作为属性值。<br>
+
+    list-style的值可以按照任意顺序输出，不需要按照固定顺序去设置参数值。
+</p>
+
+<h1>轮播图</h1>
+<p>
+    轮播图用于产品相关的宣传，有一组图、控制器（左右翻页）、计时器组成。<br>
+
+
+</p>
+</body>
+</html>
