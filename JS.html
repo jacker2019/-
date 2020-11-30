@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+</head>
+<body>
+
+<h1>JS简介</h1>
+<p>
+    JS是运行在客户端的解释型脚本语言，用来完成前后端交互，增加用户体验的一些逻辑。 <br>
+    网页结构由HTML实现、表现由CSS实现、行为由JS实现。<br>
+    JavaScript组成：ECMAScript（ECMA-262标准）、DOM（W3C标准）、BOM组成。其中ECMAScript是基础语言部分，DOM是动态操作节点，BOM是浏览器操作。<br>
+    <br>
+    JS特点：松散性（JS变量没有明确类型，是弱类型语言）、对象属性（对象的属性可以映射为任意数据）、继承机制（JS是基于原型继承的）。<br>
+    <br>
+    JS使用方式：<br>
+    1. 嵌入到HTML中的 script标签中，添加行为。type=“text/javascript”,defer="defer" charset="utf-8",type表示是JS脚本，defer表示DOM元素加载完成之后再执行JS代码，charset表示字符编码。<br>
+    注意：script标签可以写在网页的任何地方，凡是为了避免JS阻塞（上面的语句出问题影响下面的代码执行），最好是写在body 后面。<br>
+    <br>
+
+    2.  在a标签中 用href属性引入JS代码。但实际中用的很少，因为会影响性能。 <br>
+    3、 用 script 标签中用 src 引入 外部的JS 文件。async异步加载（在加载DOM的时候同时可以运行JS代码）<br>
+
+    <br>
+    常量声明：a = 1； 常量不可变。<br>
+    变量声明：var a, b = 1,2; 变量未赋值前，系统自动赋值undefined。函数内部声明则为局部变量，外部声明则为全局变量 <br>
+    基本类型的变量是存在栈中的，引用类型的变量由堆和栈构成，值是存在堆里面的，栈存放的是存放地址。 <br>
+    <br>
+    var 定义的变量存在变量位置提升，也就是说在定义变量之前也可以访问 ，结果是undefined。<br>
+
+
+
+
+</p>
+
+<h1>JS语法</h1>
+<p>
+    标识符：字母、数字、下划线和美元符号组成，必须以字母和下划线开头。<br>
+    JS严格区分大小写。<br>
+    单行注释：// <br>
+    多行注释：/* 注释内容 */ <br>
+
+    <br>
+    <h3>数据类型</h3>
+    数据类型： number(数值型)、 string 、null（空） 、boolean、 undefined （未定义） 六种基本数据类型。引用类型就 object对象类型。<br>
+    数值型数据：0开头表示八进制，0x开头就表示16进制。其他则为10进制。 isNaN() 用于判断是不是一个数。<br>
+    字符型：用单双引号包容字符串。转移字符为\<br>
+    对象型：用来声明或存储一个对象，对象可以是函数、正则、字符、数值等 ，例如 var a=new Number(10); var obj={code:'001'}<br>
+    注意：双引号里面不能嵌套双引号，单引号里面不能嵌套单引号。所以单引号可以嵌套双引号、双引号可以嵌套单引号<br>
+
+
+
+
+    <br>
+<h3>运算符</h3>
+    运算符：算数、字符串、关系运算符、逻辑运算符、位运算、三目运算。<br>
+    算数：+ 、— 、*、/、%、++、-- 七种，JS中除法除数为0不会报错，会显示infinity，然后取余可以带小数，取余的正负符号与被除数符号相同。<br>
+    字符串运算符：+ 用于字符串拼接 <br>
+    关系运算符： >、 <、 >=、<=、==、===、!=、!==。其中，==与!=表示比较值，===与!==表示既比较值，又比较数据类型。大小比较中：字符是比较ascii码，汉字是比较Unicode码，可以通过charCodeAt()获得编码<br>
+    逻辑运算：&&、||、！（非，取反） 。注意：&&和||如果比较对象非布尔值，则返回符合的第一个或第二个值，所以JS除了返回布尔值也会返回其他值。<br>
+    三目运算：表达式1 ？表达式2：表达式3；表达式1成立则返回表达式2，否则表达式3. <br>
+
+
+    <br>
+<h3>条件、分支、循环语句</h3>
+    条件语句：单分支：if（条件）{语句1}，双分支：if （条件）{语句1}else{语句2}；多分支就单分支与双分支嵌套  <br>
+    分支语句：switch（条件）{case 表达式：语句；[break；]default：语句n}； 没有break 后续语句会继续执行（不需要判断对应的条件） <br>
+    循环语句：<br>
+    1.for循环：for([变量初始值];[条件];[步长]){ [循环体;]} <br>
+    <br>
+    2.while循环：while(条件){[循环体;]} <br>
+    <br>
+
+    3.do..while循环： do{[循环体]}while（条件） <br>
+    <br>
+    4、数组对象遍历：for ..in 和 forEach（） <br>
+    <br>
+    注意：break、continue语句必须单独存在，后续不在有别的语句。<br>
+
+    <br>
+<h3>函数</h3>
+    定义函数方式：<br>
+    方式一： <br>
+    function 函数名 （形参列表）{ <br>
+        函数体； <br>
+        [return 表达式;] <br>
+    } <br>
+
+    方式二： 变量名相当于函数名 <br>
+    var 变量名 = function（形参列表）{函数体；} <br>
+    <br>
+
+    方式三：<br>
+    (function([形参列表]){<br>
+        函数体；<br>
+    }([实参列表])<br>
+    注意：方式三定义方式是立即执行的函数。多个立即执行函数之间用分号隔开，避免混在一起<br>
+    注意：实参和形参按序匹配，数目不匹配也不会报错，默认是undefine。 <br>
+    <br>
+
+方式四：new 构建函数对象：<br>
+var fn=new Function(); <br>
+fn3=function(形参列表){函数体}<br>
+<br>
+形参可以设置默认值。<br>
+
+
+    函数内的 arguments 参数用于不确定传入参数数目的时候。方便动态传值，是一个类似数组的对象，该对象含有callee属性，通过这个属性可以调用函数自身（例如在递归调用中用这个参数取代函数名，方便编代码）。 <br>
+<br>
+    this指针对象，在全局中指向window，在函数中指向函数执行所操作的当前对象。<br>
+<br>
+
+
+
+
+<h3>对象</h3>
+
+    对象的定义：<br>
+    方式一： new 构建<br>
+    var 对象名 = new Object（）； 然后为这个对象设置属性/方法：对象名.属性=xx<br>
+
+    <br>
+    方式二：常量定义 <br>
+    var 变量名 = { <br>
+        key：值， <br>
+        fn：function（）{方法} <br>
+    } <br>
+    <br>
+
+    对象引用的两种方法：对象名[属性/方法[实参列表]]、对象名.属性/方法[实参列表] <br>
+    <br>
+<h3>数组</h3>
+    数组 <br>
+    定义数组：<br>
+    方式一：new 构建 <br>
+    var 数组名 = new Array([数组值列表]) <br>
+    <br>
+
+    方式二：常量创建 <br>
+    var 数组名 = [数组值列表] <br>
+    <br>
+    添加数据： 数组名.push（值） <br>
+    读取数据： 数组名[下标索引] <br>
+    <br>
+
+    数组的遍历：<br>
+    for循环、for(var i in arr)、 arr.forEach(function(value,index)){console.log(value,index)} <br>
+<br>
+    数组的属性和方法：<br>
+    数组.length：数组长度 <br>
+    数组.push（）:追加元素 <br>
+    数组.pop（）：删除最后一个元素 <br>
+    数组.unshift()  ： 数组头部添加数据 <br>
+    数组.shift()  : 删除第一个元素 <br>
+    数组.concat() :将多个数组拼接成一个数组 <br>
+    数组.reverse() :数组倒序处理 <br>
+    数组.join() :将数组转换为字符串 <br>
+    数组.splice(初始下标，个数[，没有这个数值就是删，有则表示替换]) ：删除、修改或向数组添加元素，个数的位置为0则表示添加 <br>
+<br>
+
+
+
+<h3> 面向对象</h3>
+<p>
+    Global对象：JS中没有global对象，一般作为window对象的一部分实现。<br>
+    global对象方法： <br>
+    encodeURIComponent(),编码成 Unicode。<br>
+    decodeURIComponent()，对Unicode进行解码处理 <br>
+    eval(),字符串解析，能够在字符串里面加一个变量，并解析出来（较危险，容易sql注入） <br>
+
+    <br>
+    Math对象，提供大量的数学运算属性和方法。<br>
+    属性：<br>
+    Math.E ，自然对数 <br>
+    Math.PI，圆周率 <br>
+    ... <br>
+    方法：<br>
+    Math.min() 与 Math.max() ,求最大最小值。<br>
+    Math.round() ，四舍五入 <br>
+    Math.ceil() ,向上取整 <br>
+    Math.floor() ,向下取整 <br>
+    Math.random() ，产生0-1的随机小数 <br>
+    Math.pow() ，幂方。 <br>
+    ...等 <br>
+    <br>
+
+
+    Number对象的属性与方法：<br>
+    属性：<br>
+    Number.MAX_VALUE/Number.MIN_VALUE ：最大/最小值 <br>
+    Number.NaN ：非数值。 <br>
+    Number.NEGATIVE_INFINITY ：负无穷大 <br>
+    Number.POSITIVE_INFINITY ：正无穷大 <br>
+    Number.prototype：原型 <br>
+    <br>
+    方法：<br>
+    toString() :将数值转换为字符串。<br>
+    toFixed() :将数字保留小数点 指定位数，并转化为字符串。<br>
+    toLocalString() : 根据本地数字格式转换为字符串。<br>
+    toExponential() :将数字以指数形式表示，保留小数点后制定位数并转化为字符串。<br>
+    toPrecision()：以指数形式或点形式标书，保留小数点后制定位数并转化为字符串。<br>
+    <br>
+
+    String对象的属性与方法：<br>
+    length ：字符串长度。<br>
+    str.charAt(n) 返回指定索引位置的字符<br>
+    str.charCodeAt(n) 以Unicode编码形式返回指定索引位置的字符<br>
+    str.concat(str1...str2) 将字符串参数串联到调用该方法的字符串<br>
+    str.slice(n,m) 返回字符串n到m之间位置的字符串<br>
+    str.substring(n,m) 返回字符串n到m之间位置的字符串<br>
+    str.substr(n,m) 返回字符串n开始的m个字符串<br>
+    str.indexOf(str, n) 从n开始搜索的第一个str，并将搜索的索引值返回<br>
+    str.lastIndexOf(str, n) 从n开始搜索的最后一个str，并将搜索的索引值返回<br>
+    str.str.toLowerCase() 将字符串全部转换为小写<br>
+    str.str.toUpperCase() 将字符串全部转换为大写<br>
+    str.match(pattern) 返回pattern 中的子串或null，返回的是一个数组<br>
+    str.replace(pattern, replacement) 用replacement 替换pattern<br>
+    str.search(pattern) 返回字符串中pattern 开始位置<br>
+    str.split(pattern) 返回字符串按指定pattern 拆分的数组，什么都不带就是字符串每个元素切分<br>
+    String.fromCharCode(ascii) 静态方法，输出Ascii码对应值<br>
+    str.localeCompare(str1,str2) 比较两个字符串，并返回相应的值<br>
+    <br>
+
+
+</p>
+
+<h3>工厂模式</h3>
+<p>
+    使用工厂模式成批创建相似对象。 <br>
+    传统的创建对象的方式：<br>
+    var obj=new Object(<br>
+        {name:'Tom',<br>
+        age:18,<br>
+        fn:function(){<br>
+            return this.name<br>
+            }<br>
+        }<br>
+
+    );<br>
+    <br>
+
+    <br>
+    工厂模式创建对象方式：用函数的方式创建对象<br>
+    function createOBJ（name，age）{<br>
+    var obj=new Object();<br>
+    obj.name=name;<br>
+    obj.age=age;<br>
+    obj.fn=function(){<br>
+        return this.name<br>
+        }<br>
+    } <br>
+    <br>
+
+    缺点是：无法知道当前实例是哪一个对象创建的，显示的全是Object。因此引构造函数更好些。<br>
+</p>
+
+
+<h3>构造函数</h3>
+<p>
+    构造函数创建对象：构造函数名首字母大写，用来区分其他函数<br>
+    function Person（name，age）{<br>
+        this.name=name;<br>
+        this.age=age; <br>
+        this.fn=function(){<br>
+            return this.name;<br>
+        }<br>
+    }<br>
+    注意：这里的this 代表的不是Person，而是实例化的对象。所以构造函数生成对象可以知道实例对象。用 new 函数名() 来实例化对象。<br>
+
+</p>
+
+
+    <br>
+    常见的方法：<br>
+    console.log() 表示控制台输出，用于开发测试。<br>
+    typeof（） 判断数据类型。<br>
+    instanceof 判断引用类型的实例属于哪个类 <br>
+    isNaN（） 判断是否是数值，true表示不是数值。<br>
+
+
+
+
+
+
+</p>
+
+</body>
+</html>
